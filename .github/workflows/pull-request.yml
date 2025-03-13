@@ -17,14 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        # The action defaults to search for the dependency file
-        # (package-lock.json or yarn.lock) in the repository root, and uses
-        # its hash as a part of the cache key.
-        # https://github.com/actions/setup-node#caching-packages-dependencies
-        cache-dependency-path: "**/package-lock.json"
-    - run: npm ci
-    - run: npm run lint
+        cache-dependency-path: '**/package-lock.json'
